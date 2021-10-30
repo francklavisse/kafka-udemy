@@ -9,9 +9,16 @@ producer = kafka.async_producer(
     max_buffer_bytesize: 100_000 # max 10M of data
 )
 
+# topic first_topic
 producer.produce("hello world", topic: "first_topic")
 producer.produce("second message", topic: "first_topic")
 producer.produce("byebye", topic: "first_topic")
+
+
+# topic new_topic
+# will not be consumed by consumers reading only first_topic
+producer.produce("another topic", topic: "new_topic")
+producer.produce("blablabla", topic: "new_topic")
 
 producer.deliver_messages
 
