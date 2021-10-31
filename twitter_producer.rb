@@ -15,7 +15,9 @@ producer = kafka.async_producer(
     delivery_interval: 1, # deliver each second
     required_acks: :all, # already set to :all by default, but I wanted to write a config example
     max_buffer_size: 100, # max 100 messages 
-    max_buffer_bytesize: 100_000 # max 10M of data
+    max_buffer_bytesize: 100_000, # max 10M of data
+    compression_codec: :lz4,
+    compression_threshold: 5,
 )
 
 topics = ["bitcoin", "eth", "btc"]

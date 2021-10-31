@@ -8,4 +8,5 @@ group :development do
   gem 'ruby-kafka'
   gem 'twitter'
   gem 'dotenv'
+  gem 'extlz4'
 end
